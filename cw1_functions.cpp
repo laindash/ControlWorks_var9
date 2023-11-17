@@ -51,7 +51,7 @@ void fillBuses(Bus* buses, int amount) {
 void searchByRouteNumber(Bus* buses, Bus* ansBuses, int amount, int isTest) {
     bool isThereAtLeastOne = false;
     std::string test_value = "68A";
-    std::string routeNumber{};
+    std::string routeNumber = test_value;
     int counter(0);
     if (isTest == MANUAL_INPUT) {
         std::cout << "¬ведите маршрут, по которому необходимо произвести поиск." << std::endl;

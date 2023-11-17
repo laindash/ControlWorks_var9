@@ -10,7 +10,7 @@
 bool UnitTestCW1::testCaseOne() { // test search by route number
 	const int amount(3); // amount of buses in file
 	std::string routeNumber{};
-	const std::string ansRouteNumber = "68A";
+	std::string ansRouteNumber = "68A";
 	const int test_amount(2); // amount of buses with the required route number
 	Bus* buses = nullptr;
 	Bus* ansBuses = nullptr;
@@ -88,7 +88,6 @@ bool UnitTestCW1::testCaseOne() { // test search by route number
 }
 
 bool UnitTestCW1::testCaseTwo() { // test search by start year > 10
-	const int CURRENT_YEAR = 2023;
 	const int amount(3);
 	const int test_amount(2);
 	Bus* ansBuses = nullptr;
@@ -114,10 +113,12 @@ bool UnitTestCW1::testCaseTwo() { // test search by start year > 10
 	getListFromFile(buses, amount, test_file_path);
 	searchByStartYear(buses, ansBuses, amount, MODUL_TESTS);
 
+	// Calculating the number of objects in an array
 	int counter(0);
 	for (int i = 0; i < amount; i++)
-		if (CURRENT_YEAR - ansBuses[i].getStartYear() > 10)
+		if (ansBuses[i].getStartYear())
 			counter++;
+
 	if (counter > test_amount) {
 		std::cout
 			<< "Тест 2 провален." << std::endl
