@@ -114,28 +114,25 @@ bool UnitTestCW1::testCaseTwo() { // test search by start year > 10
 	searchByStartYear(buses, ansBuses, amount, MODUL_TESTS);
 
 	// Calculating the number of objects in an array
-	int counter(0);
-	for (int i = 0; i < amount; i++)
-		if (ansBuses[i].getStartYear())
-			counter++;
+	size_t arraySize = sizeof(ansBuses) / sizeof(ansBuses[0]);
 
-	if (counter > test_amount) {
+	if (arraySize > test_amount) {
 		std::cout
 			<< "Тест 2 провален." << std::endl
 			<< "Ожидалось: " << "количество автобусов: " << test_amount << std::endl
-			<< "Получено: " << counter << std::endl;
-
-		if (buses != nullptr) {
-			delete[] buses;
-			buses = nullptr;
-		}
-
-		if (ansBuses != nullptr) {
-			delete[] ansBuses;
-			ansBuses = nullptr;
-		}
+			<< "Получено: " << arraySize << std::endl;
 
 		return false;
+	}
+
+	if (buses != nullptr) {
+		delete[] buses;
+		buses = nullptr;
+	}
+
+	if (ansBuses != nullptr) {
+		delete[] ansBuses;
+		ansBuses = nullptr;
 	}
 
 	return true;
@@ -178,17 +175,17 @@ bool UnitTestCW1::testCaseThree() { // test search by mileage > 10000
 			<< "Ожидалось: " << "количество автобусов: " << test_amount << std::endl
 			<< "Получено: " << counter << std::endl;
 
-		if (buses != nullptr) {
-			delete[] buses;
-			buses = nullptr;
-		}
-
-		if (ansBuses != nullptr) {
-			delete[] ansBuses;
-			ansBuses = nullptr;
-		}
-
 		return false;
+	}
+
+	if (buses != nullptr) {
+		delete[] buses;
+		buses = nullptr;
+	}
+
+	if (ansBuses != nullptr) {
+		delete[] ansBuses;
+		ansBuses = nullptr;
 	}
 
 	return true;

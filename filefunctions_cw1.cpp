@@ -7,7 +7,7 @@ bool isDataCorrectCW1(std::ifstream& file) { //The function checks if the data l
     std::string test_string{};
     int test_int{};
 
-    if (!file.eof()) {
+    while (!file.eof()) {
         getLine(file, test_string, WITHOUT_DIGITS, FILE_INPUT); //driverInfo
         if (test_string.empty()) {
             std::cout << "Ошибка считывания данных водителя!" << std::endl;
@@ -37,25 +37,31 @@ bool isDataCorrectCW1(std::ifstream& file) { //The function checks if the data l
             std::cout << "Ошибка считывания года начала эксплуатации, превышено максимальное значение!" << std::endl;
             return false;
         }
+        if (test_int <= 0) {
+            std::cout << "Ошибка считывания года начала эксплуатации, значение не может быть отрицательным или равным 0!" << std::endl;
+            return false;
+        }
         if (file.fail()) {
             std::cout << "Ошибка считывания года начала эксплуатации!" << std::endl;
             return false;
         };
-        
+        file.get();
+
         file >> test_int; //mileage
         if (test_int > INT_MAX) {
             std::cout << "Ошибка считывания пробега, превышено максимальное значение!" << std::endl;
+            return false;
+        }
+        if (test_int <= 0) {
+            std::cout << "Ошибка считывания пробега, значение не может быть отрицательным или равным 0!" << std::endl;
             return false;
         }
         if (file.fail()) {
             std::cout << "Ошибка считывания пробега!" << std::endl;
             return false;
         };
-
-        while (file.get() != EOF); //to clean up possible residual information
+        file.get();
     }
-    else
-        std::cout << "Файл пуст!" << std::endl;
 
     file.seekg(0, std::ios::beg);  //If everything went well, then return the pointer to the beginning of the file
     return true;
@@ -104,7 +110,7 @@ std::string checkFile() {
     return path;
 }
 
-void getListFromFile(Bus* List, int amount, std::string path = checkFile()) {
+void getListFromFile(Bus* List, int amount, std::string path) {
     std::ifstream file(path);
 
     for (int i = 0; i < amount && !file.eof(); i++) {
@@ -175,7 +181,7 @@ void saveToFile(Bus* List, int amount) {
         outputRouteNumber = List[i].getRouteNumber();
         outputBrand = List[i].getBrand();
         outputStartYear = List[i].getStartYear();
-        outputMileage = List[i].getStartYear();
+        outputMileage = List[i].getMileage();
 
         if (i != 0) //separator between different buses
             file << std::endl;

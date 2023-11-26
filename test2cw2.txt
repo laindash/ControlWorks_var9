@@ -1,10 +1,10 @@
-travoyadnie
-12
-12321132
-m
-21
-vseyadnie
+Burenov Oleg Vladimirovich
+35
+junior
 3
-susha
-m
-10
+0
+Kolobkov Andrey Olegovich
+25
+senior
+2
+250000

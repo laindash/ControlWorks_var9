@@ -2,36 +2,60 @@
 #include "input.h"
 #include <iomanip>
 
-void Herbivoress::Show(void) const
-{
+void HourlyEmployee::show(void) const {
     std::cout
         << "************************************************" << std::endl
-        << "| Способ питания: " << _wayOfEating << std::endl
-        << "| Вес: " << std::fixed << std::setprecision(2) << _weight << " кг" << std::endl
-        << "| Среда обитания: " << _habitat << std::endl
-        << "| Пол: " << _gender << std::endl
-        << "| Скорость передвижения: " << std::fixed << std::setprecision(2) << _movementSpeed << " км/ч" << std::endl
+        << "| ФИО: " << _name << std::endl
+        << "| Возраст: " << _age << std::endl
+        << "| Должность: " << _position << std::endl
+        << "| Количество отработанных часов: " << _workTime << std::endl
+        << "| Зарплата: " << std::fixed << std::setprecision(2) << _salary << " руб/час" << std::endl
         << "************************************************" << std::endl;
 }
 
-void Herbivoress::SetGender(void)
-{
-    std::cout << "Введите пол: ";
-    getLine(std::cin, _gender, WITHOUT_DIGITS, MANUAL_INPUT);
+void HourlyEmployee::setWorkTime(void) {
+    std::cout << "Введите количество отработанных сотрудником часов: ";
+    _workTime = getPosInt();
 }
 
-void Herbivoress::SetGenderFromFile(std::istream& input)
-{
-    std::getline(input, _gender);
+void HourlyEmployee::setWorkTime(std::istream& input) {
+    input >> _workTime; input.get();
 }
 
-void Herbivoress::SetMovementSpeed()
-{
-    std::cout << "Введите скорость передвижения: ";
-    _movementSpeed = getPosDouble();
+void HourlyEmployee::setSalary(void) {
+    std::cout << "Введите зарплату сотрудника в час: ";
+    _salary = getPosInt();
 }
 
-void Herbivoress::SetMovementSpeedFromFile(std::istream& input)
-{
-    input >> _movementSpeed; input.get();
+void HourlyEmployee::setSalary(std::istream& input) {
+    input >> _salary; input.get();
+}
+
+void StateEmployee::show(void) const {
+    std::cout
+        << "************************************************" << std::endl
+        << "| ФИО: " << _name << std::endl
+        << "| Возраст: " << _age << std::endl
+        << "| Должность: " << _position << std::endl
+        << "| Опыт работы (в месяцах): " << _workExperience << std::endl
+        << "| Зарплата: " << std::fixed << std::setprecision(2) << _salary << " руб/мес" << std::endl
+        << "************************************************" << std::endl;
+}
+
+void StateEmployee::setWorkExperience(void) {
+    std::cout << "Введите опыт работы сотрудника в месяцах (считать за минимум 1 месяц): ";
+    _workExperience = getPosInt();
+}
+
+void StateEmployee::setWorkExperience(std::istream& input) {
+    input >> _workExperience; input.get();
+}
+
+void StateEmployee::setSalary(void) {
+    std::cout << "Введите зарплату сотрудника в месяц: ";
+    _salary = getPosInt();
+}
+
+void StateEmployee::setSalary(std::istream& input) {
+    input >> _salary; input.get();
 }

@@ -1,16 +1,17 @@
 #include "filefunctions_cw1.h"
-/*#include "filefunctions_cw2.h"
+#include "filefunctions_cw2.h"
+/*
 #include "filefunctions_cw3.h"
 #include "filefunctions_cw4.h"
 */
 #include "input.h"
 #include "cw_info.h"
+
 #include "cw1_functions.h"
 #include "tests_cw1.h"
-
-/*
 #include "cw2_functions.h"
 #include "tests_cw2.h"
+/*
 #include "cw3_functions.h"
 #include "tests_cw3.h"
 #include "cw4_functions.h"
@@ -128,12 +129,71 @@ void startCW1(void) {
     while (user_choice != NO);
 }
 
-void startCW2(void)
-{
+void startCW2(void) {
     int user_choice{};
-    do
-    {
-        
+    do {
+        std::vector<Worker*> employees{};
+        int workerType{}, employees_amount{};
+        std::string file_path{};
+        UnitTestCW2 tests{};
+
+        infoCW2();
+        chooseWorkerType(workerType);
+
+        if (workerType != QUIT) {
+            showMainMenuCW2();
+            switch (user_choice = getKey(FILE_INPUT, MODUL_TESTS)) {
+            case FILE_INPUT:
+                file_path = checkFileCW2(workerType);
+                employees_amount = (countStringsCW2(file_path) / 5);
+                std::cout << "Загружено служащих: " << employees_amount << std::endl;
+                getEmployeesFromFile(employees, employees_amount, file_path, workerType);
+                break;
+
+            case MANUAL_INPUT:
+                std::cout << "Введите число служащих: ";
+                employees_amount = getPosInt();
+                if (workerType == HOURLY_EMPLOYEE) {
+                    fillHourly(employees, employees_amount);
+                }
+                if (workerType == STATE_EMPLOYEE) {
+                    fillState(employees, employees_amount);
+                }
+                break;
+
+            case MODUL_TESTS:
+                tests.runAllTests();
+                break;
+
+            case QUIT:
+                break;
+            }
+
+            while (user_choice != QUIT) {
+                showMenuCW2();
+                switch (user_choice = getKey(SHOW, SAVECW2)) {
+                case SHOW:
+                    if (workerType == HOURLY_EMPLOYEE) {
+                        showHourly(employees);
+                    }
+                    if (workerType == STATE_EMPLOYEE) {
+                        showState(employees);
+                    }
+                    break;
+
+                case SAVECW2:
+                    saveToFile(employees, workerType);
+                    break;
+
+                case QUIT:
+                    break;
+                }
+            }
+        }
+        std::cout << "1 - Запустить эту КР ещё раз, 2 - Выбрать другую КР, ESC - Завершить работу программы." << std::endl;
+        user_choice = getKey(YES, NO);
+        if (user_choice == QUIT)
+            exit(EXIT_SUCCESS);
     } 
     while (user_choice != NO);
 }

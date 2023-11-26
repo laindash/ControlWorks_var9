@@ -5,13 +5,13 @@
 class UnitTestCW2
 {
 public:
-	bool TestCaseOne();
-	bool TestCaseTwo();
-	bool TestCaseThree();
-	bool TestCaseFour();
-	bool TestCaseFive();
+	bool testCaseOne();
+	bool testCaseTwo();
+	bool testCaseThree();
+	bool testCaseFour();
+	bool testCaseFive();
 
-	void RunAllTests();
+	void runAllTests();
 };
 
 #endif

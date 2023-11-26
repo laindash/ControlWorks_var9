@@ -1,25 +1,38 @@
-#ifndef HERBIVORESS_H
-#define HERBIVORESS_H
+#ifndef EMPLOYEES_H
+#define EMPLOYEES_H
+
 #include "worker.h"
 
-class Herbivoress : public Mammal
-{
+class HourlyEmployee : public Worker {
 private:
-    std::string _gender{};
-    double _movementSpeed{};
+    int _workTime{};
 
 public:
-    void Show() const override;
+    void show() const override;
+    void setSalary() override;
+    void setWorkTime();
+    void setWorkTime(std::istream& input);
+    void setSalary(std::istream& input);
 
-    void SetGender();
-    void SetGenderFromFile(std::istream& input);
-    void SetMovementSpeed();
-    void SetMovementSpeedFromFile(std::istream& input);
+    int getWorkTime() const { return _workTime; };
 
-    double GetMovementSpeed() const { return _movementSpeed; };
-    std::string GetGender() const { return _gender; };
+    ~HourlyEmployee() = default;
+};
 
-    ~Herbivoress() = default;
+class StateEmployee : public Worker {
+private:
+    int _workExperience{};
+
+public:
+    void show() const override;
+    void setSalary() override;
+    void setWorkExperience();
+    void setWorkExperience(std::istream& input);
+    void setSalary(std::istream& input);
+
+    int getWorkExperience() const { return _workExperience; };
+
+    ~StateEmployee() = default;
 };
 
 #endif

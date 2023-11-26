@@ -6,11 +6,11 @@
 #include <fstream>
 
 
-bool UnitTestCW2::TestCaseOne() // boot from valid file
-{
+bool UnitTestCW2::testCaseOne() { // boot from valid file
 	std::string test_file_path = "test1cw2.txt";
-	if (!std::ifstream(test_file_path))
-	{
+	int workerType = HOURLY_EMPLOYEE;
+
+	if (!std::ifstream(test_file_path)) {
 		std::cout
 			<< "Тест 1 провален." << std::endl
 			<< "Ожидалось: файл открыт!" << std::endl
@@ -19,8 +19,7 @@ bool UnitTestCW2::TestCaseOne() // boot from valid file
 	}
 
 	std::ifstream file(test_file_path);
-	if (!IsDataCorrectCW2(file))
-	{
+	if (!isDataCorrectCW2(file, workerType)) {
 		std::cout
 			<< "Тест 1 провален." << std::endl
 			<< "Ожидалось: данные корректны " << std::endl
@@ -31,11 +30,11 @@ bool UnitTestCW2::TestCaseOne() // boot from valid file
 	return true;
 }
 
-bool UnitTestCW2::TestCaseTwo() // check file where habitat is digit
-{
+bool UnitTestCW2::testCaseTwo() { // check file where salary = 0
 	std::string test_file_path = "test2cw2.txt";
-	if (!std::ifstream(test_file_path))
-	{
+	int workerType = STATE_EMPLOYEE;
+
+	if (!std::ifstream(test_file_path)) {
 		std::cout
 			<< "Тест 2 провален." << std::endl
 			<< "Ожидалось: файл открыт!" << std::endl
@@ -44,8 +43,7 @@ bool UnitTestCW2::TestCaseTwo() // check file where habitat is digit
 	}
 
 	std::ifstream file(test_file_path);
-	if (IsDataCorrectCW2(file))
-	{
+	if (isDataCorrectCW2(file, workerType)) {
 		std::cout
 			<< "Тест 2 провален." << std::endl
 			<< "Ожидалось: " << "данные некорректны " << std::endl
@@ -57,12 +55,11 @@ bool UnitTestCW2::TestCaseTwo() // check file where habitat is digit
 	return true;
 }
 
-bool UnitTestCW2::TestCaseThree() // check file where way of eating is digit
-{
+bool UnitTestCW2::testCaseThree() { // check file where name is digit
 	std::string test_file_path = "test3cw2.txt";
+	int workerType = STATE_EMPLOYEE;
 
-	if (!std::ifstream(test_file_path))
-	{
+	if (!std::ifstream(test_file_path)) {
 		std::cout
 			<< "Тест 3 провален." << std::endl
 			<< "Ожидалось: файл открыт!" << std::endl
@@ -70,8 +67,7 @@ bool UnitTestCW2::TestCaseThree() // check file where way of eating is digit
 		return false;
 	}
 	std::ifstream file(test_file_path);
-	if (IsDataCorrectCW2(file))
-	{
+	if (isDataCorrectCW2(file, workerType)) {
 		std::cout
 			<< "Тест 3 провален." << std::endl
 			<< "Ожидалось: " << "данные некорректны " << std::endl
@@ -83,12 +79,11 @@ bool UnitTestCW2::TestCaseThree() // check file where way of eating is digit
 	return true;
 }
 
-bool UnitTestCW2::TestCaseFour() // check file where weight or speed is not a digit
-{
+bool UnitTestCW2::testCaseFour() { // check file where age is not a digit
 	std::string test_file_path = "test4cw2.txt";
+	int workerType = STATE_EMPLOYEE; 
 
-	if (!std::ifstream(test_file_path))
-	{
+	if (!std::ifstream(test_file_path)) {
 		std::cout
 			<< "Тест 4 провален." << std::endl
 			<< "Ожидалось: файл открыт!" << std::endl
@@ -97,8 +92,7 @@ bool UnitTestCW2::TestCaseFour() // check file where weight or speed is not a di
 	}
 
 	std::ifstream file(test_file_path);
-	if (IsDataCorrectCW2(file))
-	{
+	if (isDataCorrectCW2(file, workerType)) {
 		std::cout
 			<< "Тест 4 провален." << std::endl
 			<< "Ожидалось: " << "данные некорректны " << std::endl
@@ -110,12 +104,11 @@ bool UnitTestCW2::TestCaseFour() // check file where weight or speed is not a di
 	return true;
 }
 
-bool UnitTestCW2::TestCaseFive() // check valid file
-{
+bool UnitTestCW2::testCaseFive() { // check valid file
 	std::string test_file_path = "test5cw2.txt";
+	int workerType = HOURLY_EMPLOYEE;
 
-	if (!std::ifstream(test_file_path))
-	{
+	if (!std::ifstream(test_file_path)) {
 		std::cout
 			<< "Тест 5 провален." << std::endl
 			<< "Ожидалось: файл открыт!" << std::endl
@@ -124,8 +117,7 @@ bool UnitTestCW2::TestCaseFive() // check valid file
 	}
 
 	std::ifstream file(test_file_path);
-	if (!IsDataCorrectCW2(file))
-	{
+	if (!isDataCorrectCW2(file, workerType)) {
 		std::cout
 			<< "Тест 5 провален." << std::endl
 			<< "Ожидалось: " << "данные корректны " << std::endl
@@ -137,10 +129,9 @@ bool UnitTestCW2::TestCaseFive() // check valid file
 	return true;
 }
 
-void UnitTestCW2::RunAllTests()
-{
+void UnitTestCW2::runAllTests() {
 	UnitTestCW2 test{};
-	if (test.TestCaseOne() && test.TestCaseTwo() && test.TestCaseThree() && test.TestCaseFour() && test.TestCaseFive())
+	if (test.testCaseOne() && test.testCaseTwo() && test.testCaseThree() && test.testCaseFour() && test.testCaseFive())
 		std::cout << "Все модульные тесты пройдены!" << std::endl;
 	else
 		std::cout << "Модульные тесты не пройдены." << std::endl;

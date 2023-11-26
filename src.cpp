@@ -40,18 +40,15 @@
 #include <Windows.h>
 
 
-int main(void) 
-{
+int main(void) {
 	//srand(static_cast<unsigned int>(time(nullptr)));
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
 	showAuthor();
-	for (;;)
-	{
+	for (;;) {
 		showMainMenu();
-		switch (int user_choice = getKey(CW1, CW1))
-		{
+		switch (int user_choice = getKey(CW1, CW2)) {
 			case CW1:
 				startCW1();
 				break;

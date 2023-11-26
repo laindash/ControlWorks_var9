@@ -2,36 +2,30 @@
 #include "input.h"
 #include <vector>
 
-void Mammal::SetHabitat()
-{
-	std::cout << "¬ведите среду обитани€: ";
-	getLine(std::cin, _habitat, WITH_DIGITS, MANUAL_INPUT);
+void Worker::setName() {
+	std::cout << "¬ведите ‘»ќ работника: ";
+	getLine(std::cin, _name, WITHOUT_DIGITS, MANUAL_INPUT);
 }
 
-void Mammal::SetHabitatFromFile(std::istream& input)
-{
-	std::getline(input, _habitat);
+void Worker::setName(std::istream& input) {
+	std::getline(input, _name);
 }
 
-void Mammal::SetWayOfEating()
-{
-	std::cout << "¬ведите способ питани€: ";
-	getLine(std::cin, _wayOfEating, WITH_DIGITS, MANUAL_INPUT);
+void Worker::setPosition() {
+	std::cout << "¬ведите должность: ";
+	getLine(std::cin, _position, WITH_DIGITS, MANUAL_INPUT);
 }
 
-void Mammal::SetWayOfEatingFromFile(std::istream& input)
-{
-	std::getline(input, _wayOfEating);
+void Worker::setPosition(std::istream& input) {
+	std::getline(input, _position);
 }
 
-void Mammal::SetWeight()
-{
-	std::cout << "¬ведите вес: ";
-	_weight = getPosDouble();
+void Worker::setAge() {
+	std::cout << "¬ведите возраст: ";
+	_age = getPosInt();
 }
 
-void Mammal::SetWeightFromFile(std::istream& input)
-{
-	input >> _weight; input.get();
+void Worker::setAge(std::istream& input) {
+	input >> _age; input.get();
 }
 

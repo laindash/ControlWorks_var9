@@ -1,5 +1,5 @@
-#ifndef DRIVER_H
-#define DRIVER_H
+#ifndef BUS_H
+#define BUS_H
 #include <string>
 #include <iostream>
 

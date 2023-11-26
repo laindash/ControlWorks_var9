@@ -3,13 +3,13 @@
 #include "employees.h"
 #include "input.h"
 
-bool IsDataCorrectCW2(std::ifstream& file);
+bool isDataCorrectCW2(std::ifstream& file, int workerType);
 
-std::string CheckFileCW2();
+std::string checkFileCW2(int workerType);
 
-void GetHerbivoressFromFile(std::vector<Mammal*>& employees, int amount, std::string path = CheckFileCW2());
+void getEmployeesFromFile(std::vector<Worker*>& employees, int amount, std::string path, int workerType);
 
-void saveToFile(std::vector<Mammal*>& employees);
+void saveToFile(std::vector<Worker*>& employees, int workerType);
 
 int countStringsCW2(std::string path);
 

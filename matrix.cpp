@@ -22,7 +22,7 @@ void Matrix::StartSort(std::vector<std::vector<int>>& arr, int rows, int columns
     {
         for (int j = 0; j < rows; j++)
         {
-            if (arr[j][i] % 2 == 0)
+            if (arr[i][i] % 2 == 0)
                 _unsortedColumns.push_back(arr[j][i]);
         }
         if (!_unsortedColumns.empty())

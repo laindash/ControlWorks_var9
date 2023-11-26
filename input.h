@@ -17,16 +17,14 @@ constexpr auto KEY_7 = 0x37;
 constexpr auto KEY_8 = 0x38;
 const double DBL_WRONG = 100000000000000000;
 
-enum InputMenu
-{
+enum InputMenu {
     FILE_INPUT = KEY_1,
     MANUAL_INPUT = KEY_2,
     MODUL_TESTS = KEY_3,
     RANDOM_INPUT = KEY_4
 };
 
-enum MenuCW
-{
+enum MenuCW {
     CW1 = KEY_1,
     CW2 = KEY_2,
     CW3 = KEY_3,
@@ -34,14 +32,12 @@ enum MenuCW
     QUIT = KEY_ESC
 };
 
-enum BoolMenu
-{
+enum BoolMenu {
     YES = KEY_1,
     NO = KEY_2
 };
 
-enum BoolInput
-{
+enum BoolInput {
     WITHOUT_DIGITS,
     WITH_DIGITS,
     ONLY_DIGITS,
@@ -49,8 +45,7 @@ enum BoolInput
     CW4_INPUT
 };
 
-enum MainMenuCW1
-{
+enum MainMenuCW1 {
     SEARCH_BY_ROUTE_NUMBER = KEY_1,
     SEARCH_BY_START_YEAR = KEY_2,
     SEARCH_BY_MILEAGE = KEY_3,
@@ -58,19 +53,21 @@ enum MainMenuCW1
     SAVECW1 = KEY_5
 };
 
-enum MainMenuCW2
-{
+enum EmployeeChoiceCW2 {
+    HOURLY_EMPLOYEE = KEY_1,
+    STATE_EMPLOYEE = KEY_2
+};
+
+enum MainMenuCW2 {
     SHOW = KEY_1,
     SAVECW2 = KEY_2
 };
 
-enum MainMenuCW3
-{
+enum MainMenuCW3 {
     SAVECW3 = KEY_2
 };
 
-enum MainMenuCW4
-{
+enum MainMenuCW4 {
     ENTRY_LENGTH = KEY_1,
     SHOW_RESTORED = KEY_2,
     SHOW_MODIFIED = KEY_3,
@@ -79,8 +76,7 @@ enum MainMenuCW4
     SAVECW4 = KEY_6
 };
 
-enum SORTS
-{
+enum SORTS {
     BUBBLE_SORT,
     SELECTION_SORT,
     INSERTION_SORT,
@@ -96,9 +92,6 @@ int getRandInt(int lowBound, int upBound);
 
 double getDouble();
 double getPosDouble();
-size_t GetSequenceSize();
-long long GetPosLongLong();
-long long GetLongLong();
 
 bool getBool();
 

@@ -1,30 +1,33 @@
-#ifndef MAMMAL_H
-#define MAMMAL_H
+#ifndef WORKER_H
+#define WORKER_H
+
 #include <iostream>
 #include <string>
 #include <vector>
 
-class Mammal
-{
+class Worker {
 protected:
-    std::string _wayOfEating{}, _habitat{};
-    double _weight{};
+    std::string _name{}, _position{};
+    int _age{};
+    double _salary{};
 
 public:
-    virtual void Show() const = 0; 
-    void SetHabitat();
-    void SetHabitatFromFile(std::istream& input);
-    void SetWayOfEating();
-    void SetWayOfEatingFromFile(std::istream& input);
-    void SetWeight();
-    void SetWeightFromFile(std::istream& input);
+    virtual void show() const = 0; 
+    virtual void setSalary() = 0;
+    void setName();
+    void setName(std::istream& input);
+    void setPosition();
+    void setPosition(std::istream& input);
+    void setAge();
+    void setAge(std::istream& input);
 
 
-    std::string GetHabitat() { return _habitat; };
-    std::string GetWayOfEating() const { return _wayOfEating; };
-    double GetWeight() const { return _weight; };
+    std::string getName() const { return _name; };
+    std::string getPosition() const { return _position; };
+    int getAge() const { return _age; };
+    double getSalary() const { return _salary; };
 
-    virtual ~Mammal() = default;
+    virtual ~Worker() = default;
 };
 
-#endif
+#endif 

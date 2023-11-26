@@ -205,10 +205,8 @@ void searchByMileage(Bus* buses, Bus* ansBuses, int amount, int isTest) {
     }
 }
 
-bool isListEmpty(Bus* buses, int amount)
-{
-    for (int i = 0; i < amount; i++)
-    {
+bool isListEmpty(Bus* buses, int amount) {
+    for (int i = 0; i < amount; i++) {
         if (!buses[i].isEmpty())
             return false;
     }

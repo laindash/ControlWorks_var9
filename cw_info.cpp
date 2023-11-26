@@ -1,12 +1,10 @@
 #include <iostream>
 
-void showAuthor()
-{
+void showAuthor() {
 	std::cout << "Работу выполнил: Задуев Владислав Сергеевич|Группа 425|Вариант 9|" << std::endl;
 }
 
-void showMainMenu()
-{
+void showMainMenu() {
 	system("pause");
 	system("cls");
 	std::cout
@@ -18,8 +16,7 @@ void showMainMenu()
 		<< "ESC - Завершение работы программы." << std::endl;
 }
 
-void showMainMenuCW1()
-{
+void showMainMenuCW1() {
 	std::cout 
 		<< "1 - Загрузить список автобусов из файла," << std::endl
 		<< "2 - Ввести вручную," << std::endl
@@ -27,18 +24,16 @@ void showMainMenuCW1()
 		<< "ESC - прервать выполнение данной КР." << std::endl;
 }
 
-void ShowMainMenuCW2()
-{
+void showMainMenuCW2() {
 	std::cout 
-		<< "1 - Загрузить список работников из файла," << std::endl
+		<< "1 - Загрузить список служащих из файла," << std::endl
 		<< "2 - Ввести вручную," << std::endl
 		<< "3 - Запуск модульных тестов," << std::endl
 		<< "ESC - прервать выполнение данной КР." << std::endl;
 
 }
 
-void ShowMainMenuCW3()
-{
+void ShowMainMenuCW3() {
 	std::cout
 		<< "1 - Загрузить матрицу из файла," << std::endl
 		<< "2 - Ввести матрицу вручную," << std::endl
@@ -47,8 +42,7 @@ void ShowMainMenuCW3()
 		<< "ESC - прервать выполнение данной КР." << std::endl;
 }
 
-void ShowMainMenuCW4()
-{
+void ShowMainMenuCW4() {
 	std::cout
 		<< "1 - Загрузить текст из файла," << std::endl
 		<< "2 - Ввести текст вручную," << std::endl
@@ -56,8 +50,7 @@ void ShowMainMenuCW4()
 		<< "ESC - прервать выполнение данной КР." << std::endl;
 }
 
-void showMenuCW1()
-{
+void showMenuCW1() {
 	std::cout 
 		<< std::endl
 		<< "Выберите опцию меню:" << std::endl
@@ -70,12 +63,11 @@ void showMenuCW1()
 		<< std::endl;
 }
 
-void ShowMenuCW2()
-{
+void showMenuCW2() {
 	std::cout 
 		<< std::endl
 		<< "Выберите опцию меню:" << std::endl
-		<< "1 - Показать список работников." << std::endl
+		<< "1 - Показать список служащих." << std::endl
 		<< "2 - Сохранение в файл." << std::endl
 		<< "ESC - Выход в главное меню." << std::endl
 		<< std::endl;
@@ -101,8 +93,7 @@ void ShowMenuCW4()
 }
 
 
-void infoCW1()
-{
+void infoCW1() {
 	system("cls");
 	std::cout << std::endl
 		<< "Контрольная работа №1. Инкапсуляция. Классы в С++ и средства их построения." << std::endl
@@ -116,15 +107,15 @@ void infoCW1()
 		<< "–------------------------------------------------------------------------------------------------------------" << std::endl;
 }
 
-void InfoCW2()
-{
+void infoCW2() {
 	system("cls");
 	std::cout << std::endl
 		<< "Контрольная работа №2. Наследование." << std::endl
-		<< "–-------------------------------------------------------------" << std::endl
+		<< "–------------------------------------------------------------------------------------------------------------" << std::endl
 		<< "Содержание задания:" << std::endl
-
-		<< "–-------------------------------------------------------------" << std::endl;
+		<< "Создать базовый класс работник, производные классы : служащий с почасовой оплатой, служащий в штате." << std::endl
+		<< "Определить функцию начисления зарплаты." << std::endl
+		<< "–------------------------------------------------------------------------------------------------------------" << std::endl;
 }
 
 void InfoCW3()
