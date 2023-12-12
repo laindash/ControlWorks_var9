@@ -133,7 +133,7 @@
     <ClCompile Include="cw1_functions.cpp" />
     <ClCompile Include="cw2_functions.cpp" />
     <ClCompile Include="cw3_functions.cpp" />
-    <ClCompile Include="cw4_functions.cpp" />
+    <ClCompile Include="text.cpp" />
     <ClCompile Include="cw_info.cpp" />
     <ClCompile Include="filefunctions_cw1.cpp" />
     <ClCompile Include="filefunctions_cw2.cpp" />
@@ -156,7 +156,7 @@
     <ClInclude Include="cw1_functions.h" />
     <ClInclude Include="cw2_functions.h" />
     <ClInclude Include="cw3_functions.h" />
-    <ClInclude Include="cw4_functions.h" />
+    <ClInclude Include="text.h" />
     <ClInclude Include="cw_info.h" />
     <ClInclude Include="filefunctions_cw1.h" />
     <ClInclude Include="filefunctions_cw2.h" />

@@ -41,14 +41,14 @@
 
 
 int main(void) {
-	//srand(static_cast<unsigned int>(time(nullptr)));
+	srand(static_cast<unsigned int>(time(nullptr)));
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
 	showAuthor();
 	for (;;) {
 		showMainMenu();
-		switch (int user_choice = getKey(CW1, CW2)) {
+		switch (int user_choice = getKey(CW1, CW4)) {
 			case CW1:
 				startCW1();
 				break;

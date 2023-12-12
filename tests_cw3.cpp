@@ -3,110 +3,99 @@
 #include "filefunctions_cw3.h"
 #include "matrix.h"
 
-void UnitTestCW3::PrintArray(std::vector<int> array)
-{
-	for (size_t i = 0; i < array.size(); i++)
+void UnitTestCW3::printArray(std::vector<int> array) {
+	for (size_t i = 0; i < array.size(); i++) {
 		std::cout << array[i] << ' ';
+	}
 	std::cout << std::endl;
 }
 
-bool UnitTestCW3::TestCaseOne() // test bubble sort
-{
+bool UnitTestCW3::testCaseOne() { // test bubble sort
 	std::vector<int> array{ 9, 5, 3, 2, 7, 4, 0, 1, 6, 8 };
-	std::vector<int> answer{ 9, 5, 3, 8, 7, 6, 4, 1, 2, 0 };
+	std::vector<int> answer{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 	Matrix matrix{};
 	BubbleSort bubble_sort{};
-	bubble_sort.Sort(array);
-	if (!matrix.IsSorted(array))
-	{
+	bubble_sort.sort(array);
+	if (!matrix.isSorted(array)) {
 		std::cout
 			<< "Тест 1 провален." << std::endl
 			<< "Ожидалось: " << "отсортированные элементы: " << std::endl;
-		PrintArray(answer);
+		printArray(answer);
 		std::cout << "Получено: " << std::endl;
-		PrintArray(array);
+		printArray(array);
 		return false;
 	}
 
 	return true;
-
 }
 
-bool UnitTestCW3::TestCaseTwo() // test selection sort
-{
+bool UnitTestCW3::testCaseTwo() { // test selection sort
 	std::vector<int> array{ 9, 5, 3, 2, 7, 4, 0, 1, 6, 8 };
-	std::vector<int> answer{ 9, 5, 3, 8, 7, 6, 4, 1, 2, 0 };
+	std::vector<int> answer{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 	Matrix matrix{};
 	SelectionSort selection_sort{};
-	selection_sort.Sort(array);
-	if (!matrix.IsSorted(array))
-	{
+	selection_sort.sort(array);
+	if (!matrix.isSorted(array)) {
 		std::cout
 			<< "Тест 2 провален." << std::endl
 			<< "Ожидалось: " << "отсортированные элементы: " << std::endl;
-		PrintArray(answer);
+		printArray(answer);
 		std::cout << "Получено: " << std::endl;
-		PrintArray(array);
+		printArray(array);
 		return false;
 	}
 	return true;
 }
 
-bool UnitTestCW3::TestCaseThree() // test insertion sort
-{
+bool UnitTestCW3::testCaseThree() { // test insertion sort
 	std::vector<int> array{ 9, 5, 3, 2, 7, 4, 0, 1, 6, 8 };
-	std::vector<int> answer{ 9, 5, 3, 8, 7, 6, 4, 1, 2, 0 };
+	std::vector<int> answer{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 	Matrix matrix{};
 	InsertionSort insertion_sort{};
-	insertion_sort.Sort(array);
-	if (!matrix.IsSorted(array))
-	{
+	insertion_sort.sort(array);
+	if (!matrix.isSorted(array)) {
 		std::cout
 			<< "Тест 3 провален." << std::endl
 			<< "Ожидалось: " << "отсортированные элементы: " << std::endl;
-		PrintArray(answer);
+		printArray(answer);
 		std::cout << "Получено: " << std::endl;
-		PrintArray(array);
+		printArray(array);
 		return false;
 	}
 	return true;
 }
 
-bool UnitTestCW3::TestCaseFour() // test shell sort
-{
+bool UnitTestCW3::testCaseFour() { // test shell sort
 	std::vector<int> array{ 9, 5, 3, 2, 7, 4, 0, 1, 6, 8 };
-	std::vector<int> answer{ 9, 5, 3, 8, 7, 6, 4, 1, 2, 0 };
+	std::vector<int> answer{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 	Matrix matrix{};
 	ShellSort shell_sort{};
-	shell_sort.Sort(array);
-	if (!matrix.IsSorted(array))
-	{
+	shell_sort.sort(array);
+	if (!matrix.isSorted(array)) {
 		std::cout
 			<< "Тест 4 провален." << std::endl
 			<< "Ожидалось: " << "отсортированные элементы: " << std::endl;
-		PrintArray(answer);
+		printArray(answer);
 		std::cout << "Получено: " << std::endl;
-		PrintArray(array);
+		printArray(array);
 		return false;
 	}
 	return true;
 }
 
-bool UnitTestCW3::TestCaseFive() // test quick sort
-{
+bool UnitTestCW3::testCaseFive() { // test quick sort
 	std::vector<int> array{ 9, 5, 3, 2, 7, 4, 0, 1, 6, 8 };
-	std::vector<int> answer{ 9, 5, 3, 8, 7, 6, 4, 1, 2, 0 };
+	std::vector<int> answer{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 	Matrix matrix{};
 	QuickSort quick_sort{};
-	quick_sort.Sort(array);
-	if (!matrix.IsSorted(array))
-	{
+	quick_sort.sort(array);
+	if (!matrix.isSorted(array)) {
 		std::cout
 			<< "Тест 5 провален." << std::endl
 			<< "Ожидалось: " << "отсортированные элементы: " << std::endl;
-		PrintArray(answer);
+		printArray(answer);
 		std::cout << "Получено: " << std::endl;
-		PrintArray(array);
+		printArray(array);
 		return false;
 	}
 	return true;
@@ -114,11 +103,13 @@ bool UnitTestCW3::TestCaseFive() // test quick sort
 
 
 
-void UnitTestCW3::RunAllTests()
-{
+void UnitTestCW3::runAllTests() {
 	UnitTestCW3 test{};
-	if (test.TestCaseOne() && test.TestCaseTwo() && test.TestCaseThree() && test.TestCaseFour() && test.TestCaseFive())
+	if (test.testCaseOne() && test.testCaseTwo() && test.testCaseThree() && test.testCaseFour() && test.testCaseFive()) {
+		system("cls");
 		std::cout << "Все модульные тесты пройдены!" << std::endl;
-	else
+	}
+	else {
 		std::cout << "Модульные тесты не пройдены." << std::endl;
+	}
 }

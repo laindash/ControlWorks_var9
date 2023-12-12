@@ -68,12 +68,9 @@ enum MainMenuCW3 {
 };
 
 enum MainMenuCW4 {
-    ENTRY_LENGTH = KEY_1,
-    SHOW_RESTORED = KEY_2,
-    SHOW_MODIFIED = KEY_3,
-    SAVE_RESTORED = KEY_4,
-    SAVE_MODIFIED = KEY_5,
-    SAVECW4 = KEY_6
+    SHOW_ORIGINAL = KEY_1,
+    SHOW_CONTEXTS = KEY_2,
+    SAVE_ORIGINAL = KEY_3,
 };
 
 enum SORTS {

@@ -99,7 +99,7 @@
     <ClCompile Include="tests_cw4.cpp">
       <Filter>Исходные файлы\CW4</Filter>
     </ClCompile>
-    <ClCompile Include="cw4_functions.cpp">
+    <ClCompile Include="text.cpp">
       <Filter>Исходные файлы\CW4</Filter>
     </ClCompile>
   </ItemGroup>
@@ -158,7 +158,7 @@
     <ClInclude Include="filefunctions_cw4.h">
       <Filter>Файлы заголовков\CW4</Filter>
     </ClInclude>
-    <ClInclude Include="cw4_functions.h">
+    <ClInclude Include="text.h">
       <Filter>Файлы заголовков\CW4</Filter>
     </ClInclude>
     <ClInclude Include="tests_cw4.h">

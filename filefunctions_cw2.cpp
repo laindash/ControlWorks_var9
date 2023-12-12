@@ -9,6 +9,10 @@ bool isDataCorrectCW2(std::ifstream& file, int workerType) { //The function chec
     int test_int{};
     double test_double{};
 
+    if (file.eof()) {
+        std::cout << "Файл пуст!" << std::endl;
+    }
+
     while (!file.eof()) {
         getLine(file, test_string, WITHOUT_DIGITS, FILE_INPUT); // name
         if (test_string.empty()) {

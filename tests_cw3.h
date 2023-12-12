@@ -7,15 +7,15 @@
 class UnitTestCW3
 {
 public:
-	void PrintArray(std::vector<int> array);
+	void printArray(std::vector<int> array);
 
-	bool TestCaseOne();
-	bool TestCaseTwo();
-	bool TestCaseThree();
-	bool TestCaseFour();
-	bool TestCaseFive();
+	bool testCaseOne();
+	bool testCaseTwo();
+	bool testCaseThree();
+	bool testCaseFour();
+	bool testCaseFive();
 
-	void RunAllTests();
+	void runAllTests();
 };
 
 #endif

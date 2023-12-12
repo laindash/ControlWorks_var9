@@ -2,15 +2,11 @@
 #include "input.h"
 
 
-void BubbleSort::Sort(std::vector<int>& arr)
-{
+void BubbleSort::sort(std::vector<int>& arr) {
     size_t n = arr.size();
-    for (size_t i = 0; i < n - 1; i++)
-    {
-        for (size_t j = 0; j < n - i - 1; j++)
-        {
-            if (arr[j] < arr[j + 1])
-            {
+    for (size_t i = 0; i < n - 1; i++) {
+        for (size_t j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
                 std::swap(arr[j], arr[j + 1]);
                 _swapCount++;
             }
@@ -20,21 +16,17 @@ void BubbleSort::Sort(std::vector<int>& arr)
 }
 
 
-void SelectionSort::Sort(std::vector<int>& arr)
-{
+void SelectionSort::sort(std::vector<int>& arr) {
     size_t n = arr.size(), minIndex{};
-    for (size_t i = 0; i < n - 1; i++)
-    {
+    for (size_t i = 0; i < n - 1; i++) {
         minIndex = i;
-        for (size_t j = i + 1; j < n; j++)
-        {
-            if (arr[j] > arr[minIndex])
+        for (size_t j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIndex])
                 minIndex = j;
             _comparisonCount++;
         }
 
-        if (minIndex != i)
-        {
+        if (minIndex != i) {
             std::swap(arr[i], arr[minIndex]);
             _swapCount++;
         }
@@ -42,27 +34,24 @@ void SelectionSort::Sort(std::vector<int>& arr)
 }
 
 
-void InsertionSort::Sort(std::vector<int>& arr)
-{
+void InsertionSort::sort(std::vector<int>& arr) {
     int temp = 0;
     bool same_digit{};
     size_t n = arr.size(), i{}, j{};
-    for (i = 1; i < n; i++)
-    {
+    for (i = 1; i < n; i++) {
         same_digit = false;
         j = i;
         temp = arr[i];
-        while (j > 0 && (arr[j - 1]) < (temp))
-        {
+        while (j > 0 && (arr[j - 1]) > (temp)) {
             same_digit = true;
             arr[j] = arr[j - 1];
             j--;
             _comparisonCount++;
         }
-        if ((arr[j]) >= (temp))
+        if ((arr[j]) >= (temp)) {
             _comparisonCount++;
-        if (same_digit)
-        {
+        }
+        if (same_digit) {
             arr[j] = temp;
             _swapCount++;
         }
@@ -70,30 +59,26 @@ void InsertionSort::Sort(std::vector<int>& arr)
 }
 
 
-void ShellSort::Sort(std::vector<int>& arr)
-{
+void ShellSort::sort(std::vector<int>& arr) {
     size_t n = arr.size(), gap = n / 2, i{}, j{};
     int temp{};
     bool same_digit{};
-    while (gap > 0)
-    {
-        for (i = gap; i < n; i++)
-        {
+    while (gap > 0) {
+        for (i = gap; i < n; i++) {
             same_digit = false;
             j = i;
             temp = arr[i];
-            while (j >= gap && (arr[j - gap]) < (temp))
-            {
+            while (j >= gap && (arr[j - gap]) > (temp)) {
                 same_digit = true;
                 _comparisonCount++;
                 arr[j] = arr[j - gap];
                // _swapCount++;
                 j -= gap;
             }
-            if ((arr[j]) >= (temp))
+            if ((arr[j]) >= (temp)) {
                 _comparisonCount++;
-            if (same_digit)
-            {
+            }
+            if (same_digit) {
                 arr[j] = temp;
                 _swapCount++;
             }
@@ -102,46 +87,38 @@ void ShellSort::Sort(std::vector<int>& arr)
     }
 }
 
-void QuickSort::SortPartition(std::vector<int>& arr, int left, int right)
-{
+void QuickSort::sortPartition(std::vector<int>& arr, int left, int right) {
     int i = left, j = right;
     int pivot = arr[(left + right) / 2];
 
-    while (i <= j)
-    {
-        while ((arr[i]) > (pivot))
-        {
+    while (i <= j) {
+        while ((arr[i]) < (pivot)) {
             i++;
             _comparisonCount++;
         }
         _comparisonCount++;
 
-        while ((arr[j]) < (pivot))
-        {
+        while ((arr[j]) > (pivot)) {
             j--;
             _comparisonCount++;
         }
         _comparisonCount++;
 
-        if (i <= j)
-        {
+        if (i <= j) {
             std::swap(arr[i++], arr[j--]);
             _swapCount++;
         }
     }
 
-    if (left < j)
-    {
-        SortPartition(arr, left, j);
+    if (left < j) {
+        sortPartition(arr, left, j);
     }
 
-    if (i < right)
-    {
-        SortPartition(arr, i, right);
+    if (i < right) {
+        sortPartition(arr, i, right);
     }
 }
 
-void QuickSort::Sort(std::vector<int>& arr)
-{
-    SortPartition(arr, 0, static_cast<int>(arr.size()) - 1);
+void QuickSort::sort(std::vector<int>& arr) {
+    sortPartition(arr, 0, static_cast<int>(arr.size()) - 1);
 }

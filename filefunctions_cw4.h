@@ -1,9 +1,12 @@
 #ifndef FILEFUNCTIONS_CW4_H
 #define FILEFUNCTIONS_CW4_H
+#include <fstream>
+#include <vector>
 
-bool IsDataCorrectCW4(std::ifstream& file);
-std::string CheckFileCW4();
+
+bool isDataCorrectCW4(std::ifstream& file);
+std::string checkFileCW4();
+void saveToFile(const std::vector<std::string>& text);
 void getTextFromFile(std::string& text, std::string& path);
-void saveToFile(const std::string& restoredText, const std::string& modifiedText, const std::string& text, int save_choice);
 
 #endif

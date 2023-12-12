@@ -6,12 +6,12 @@
 #include "matrix.h"
 
 
-void ShowUnsortedMatrix(std::vector<std::vector<int>>& arr, int rows, int columns);
-void ShowComparisonTable(std::vector<ISort*>& sorts);
-void FillMatrix(std::vector<std::vector<int>>& matrix, int rows, int columns);
-void FillMatrixRandomly(std::vector<std::vector<int>>& matrix, int rows, int columns);
-void GoSort(std::vector<std::vector<int>>& arr, int rows, int columns, std::vector<ISort*>& sorts, std::vector<Matrix*>& matrices);
-void ShowResults(std::vector<std::vector<int>>& arr, int rows, int columns, std::vector<ISort*>& sorts, std::vector<Matrix*>& matrices);
+void showUnsortedMatrix(std::vector<std::vector<int>>& arr, int rows, int columns);
+void showComparisonTable(std::vector<ISort*>& sorts);
+void fillMatrix(std::vector<std::vector<int>>& matrix, int rows, int columns);
+void fillMatrixRandomly(std::vector<std::vector<int>>& matrix, int rows, int columns);
+void goSort(std::vector<std::vector<int>>& arr, int rows, int columns, std::vector<ISort*>& sorts, std::vector<Matrix*>& matrices);
+void showResults(std::vector<std::vector<int>>& arr, int rows, int columns, std::vector<ISort*>& sorts, std::vector<Matrix*>& matrices);
 
 
 #endif

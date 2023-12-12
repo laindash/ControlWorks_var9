@@ -2,14 +2,12 @@
 #include <fstream>
 #include "input.h"
 #include <iostream>
-#include "cw4_functions.h"
+//#include "cw4_functions.h"
 
 
-bool IsDataCorrectCW4(std::ifstream& file) //The function checks if the data loaded from the file is valid
-{
+bool isDataCorrectCW4(std::ifstream& file) { //The function checks if the data loaded from the file is valid
     std::string test_string{};
-    if (file.eof())
-    {
+    if (file.eof()) {
         std::cout << "Файл пуст!";
         return false;
     }
@@ -17,8 +15,7 @@ bool IsDataCorrectCW4(std::ifstream& file) //The function checks if the data loa
     return true;
 }
 
-std::string CheckFileCW4()
-{
+std::string checkFileCW4() {
     std::error_code error{};
 
     std::string path{};
@@ -26,38 +23,34 @@ std::string CheckFileCW4()
 
     std::ifstream file;
 
-    do
-    {
+    do {
         std::cout << "Введите путь к файлу: ";
         getLine(std::cin, path, WITH_DIGITS, MANUAL_INPUT);
 
-        if (!std::ifstream(path))
-        {
+        if (!std::ifstream(path)) {
             std::cout << "Указанный файл не найден!" << std::endl;
             continue;
         }
 
-        if (!std::filesystem::is_regular_file(path, error))
-        {
+        if (!std::filesystem::is_regular_file(path, error)) {
             std::cout << "Ошибка, недопустимый адрес файла!" << std::endl;
             continue;
         }
 
         file.open(path);
 
-        if (!file)
-        {
+        if (!file) {
             std::cout << "Ошибка открытия файла!" << std::endl;
             file.close();
         }
-        else if (!IsDataCorrectCW4(file))
-        {
+        else if (!isDataCorrectCW4(file)) {
             std::cout << "Данные некорректны!" << std::endl;
             file.close();
         }
         else
             isLoaded = true;
-    } while (!isLoaded);
+    } 
+    while (!isLoaded);
 
     std::cout << "Файл открыт!" << std::endl;
     file.close();
@@ -65,13 +58,11 @@ std::string CheckFileCW4()
     return path;
 }
 
-void getTextFromFile(std::string& text, std::string& path)
-{
+void getTextFromFile(std::string& text, std::string& path) {
     std::ifstream file(path);
     std::string input{};
 
-    while (!file.eof())
-    {
+    while (!file.eof()) {
         getLine(file, input, CW4_INPUT, FILE_INPUT);
         text += (input);
         if (!file.eof())
@@ -82,22 +73,18 @@ void getTextFromFile(std::string& text, std::string& path)
     file.close();
 }
 
-void saveToFile(const std::string& restoredText, const std::string& modifiedText, const std::string& text, int save_choice)
-{
+void saveToFile(const std::vector<std::string>& text) {
     std::ofstream file;
     std::string path{};
     bool isOpened = false;
     std::error_code error{};
-    do
-    {
+    do {
         std::cout
             << "Введите путь к файлу для сохранения. "
             << "Если указать только имя и расширение файла, стандартным путём будет являться путь к исходному коду программы." << std::endl;
         getLine(std::cin, path, WITH_DIGITS, MANUAL_INPUT);
-        if (std::ifstream(path))
-        {
-            if (!std::filesystem::is_regular_file(path, error))
-            {
+        if (std::ifstream(path)) {
+            if (!std::filesystem::is_regular_file(path, error)) {
                 std::cout << "Ошибка, недопустимый адрес файла!" << std::endl;
                 continue;
             }
@@ -117,17 +104,13 @@ void saveToFile(const std::string& restoredText, const std::string& modifiedText
             std::cout << "Ошибка открытия файла!" << std::endl;
         else
             isOpened = true;
-    } while (!isOpened);
+    } 
+    while (!isOpened);
 
+    for (size_t i = 0; i < text.size(); i++)
+        file << text[i] << " ";
+    file << std::endl;
 
-    if (save_choice == SAVE_RESTORED)
-        file << restoredText;
-
-    else if (save_choice == SAVE_MODIFIED)
-        file << modifiedText;
-
-    else if (save_choice == SAVECW4)
-        file << text;
 
     std::cout << "Успешно сохранено в " << path << std::endl;
 }
